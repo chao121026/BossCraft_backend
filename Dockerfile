@@ -1,17 +1,7 @@
 FROM odoo:17.0
 
-# 复制插件目录
-COPY odoo_addons /mnt/extra-addons
-
-# 切换到 root 用户来修改权限
-USER root
-
-# 设置正确的权限
-RUN chown -R odoo:odoo /mnt/extra-addons && \
-    chmod -R 755 /mnt/extra-addons
-
-# 切换回 odoo 用户继续后续操作
-USER odoo
+# 复制插件目录并直接设置权限（使用 --chown 参数）
+COPY --chown=odoo:odoo odoo_addons /mnt/extra-addons
 
 # 复制配置模板和启动脚本
 COPY odoo.conf /etc/odoo/odoo.conf.template
