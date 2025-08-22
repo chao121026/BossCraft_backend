@@ -1,23 +1,24 @@
 # railway.toml
 
-# Define a single service for the BossCraft backend
+# Define the service for your BossCraft backend
 [service]
 name = "boss-craft-backend"
-
-# Force the use of Docker to build the app
+# This is the critical line: it forces the use of Docker
 builder = "docker"
 
-# Specify that the Dockerfile is located in the BossCraft subdirectory
+# Specify the build directory where your Dockerfile is located
 [build]
+# This tells Railway to look for the Dockerfile in the BossCraft subdirectory
 dir = "BossCraft"
 
-# Set environment variables
+# Define environment variables
 [env]
-# The master password for the Odoo instance
+# The master password for your Odoo instance. You will set this in the Railway dashboard.
 ADMIN_PASSWORD = { from = "secret", name = "ADMIN_PASSWORD" }
-# Database connection (these will be automatically populated if you have a linked PostgreSQL service)
+# Database connection variables. These are automatically populated if you have a linked PostgreSQL service.
 DB_HOST = { from = "service", name = "postgresql", property = "host" }
 DB_PORT = { from = "service", name = "postgresql", property = "port" }
 DB_USER = { from = "service", name = "postgresql", property = "user" }
 DB_PASSWORD = { from = "service", name = "postgresql", property = "password" }
+# The name of the database Odoo will use
 DB_NAME = "odoo"
