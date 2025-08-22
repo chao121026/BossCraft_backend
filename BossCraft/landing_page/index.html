@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BossCraft (博仕跨) - Stop Wasting Money on Fragmented Tools</title>
+  <meta name="description" content="The first unified e-commerce ecosystem. Connect sourcing, store building, fulfillment, and profit intelligence in one AI-powered system. Become your own boss." />
+  <meta name="keywords" content="e-commerce ecosystem, unified platform, AI store builder, smart fulfillment, profit intelligence, become your own boss" />
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="BossCraft - Stop Wasting Money on Fragmented Tools">
+  <meta property="og:description" content="The first unified e-commerce ecosystem. Connect sourcing, store building, fulfillment, and profit intelligence in one AI-powered system.">
+  <meta property="og:image" content="https://bosscraft.com/og-image.jpg">
+  <meta property="og:url" content="https://bosscraft.com">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BossCraft - Stop Wasting Money on Fragmented Tools">
+  <meta name="twitter:description" content="The first unified e-commerce ecosystem. Connect sourcing, store building, fulfillment, and profit intelligence in one AI-powered system.">
+  <meta name="twitter:image" content="https://bosscraft.com/og-image.jpg">
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --primary-light: #1e293b;
+      --accent: #06b6d4;
+      --accent-dark: #0891b2;
+      --success: #10b981;
+      --warning: #f59e0b;
+      --light: #f8fafc;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-700: #374151;
+      --gray-900: #111827;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--gray-900);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      z-index: 1000;
+      border-bottom: 1px solid var(--gray-200);
+      transition: all 0.3s ease;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .logo-chinese {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--accent);
+      opacity: 0.8;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--gray-700);
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+    .nav-links a:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    .nav-cta {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+    .lang-toggle {
+      display: flex;
+      background: var(--gray-100);
+      border-radius: 8px;
+      padding: 3px;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .lang-btn:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .lang-btn.active {
+      background: white;
+      color: var(--accent);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 0.95rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn:focus {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+    .btn:hover::before {
+      left: 100%;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      color: white;
+      box-shadow: 0 4px 14px rgba(6, 182, 212, 0.25);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(6, 182, 212, 0.35);
+      color: white;
+    }
+    .btn-secondary {
+      background: white;
+      color: var(--primary);
+      border: 2px solid var(--gray-200);
+    }
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .btn-lg {
+      padding: 16px 32px;
+      font-size: 1.1rem;
+    }
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, var(--accent-dark) 100%);
+      color: white;
+      padding: 160px 0 120px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    }
+    .hero-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, #ffffff 0%, #94a3b8 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      line-height: 1.1;
+    }
+    .hero .tagline {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.95;
+      font-weight: 500;
+      color: #fbbf24;
+    }
+    .hero .subtitle {
+      font-size: 1.125rem;
+      margin-bottom: 3rem;
+      opacity: 0.85;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 4rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat {
+      text-align: center;
+    }
+    .hero-stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      display: block;
+      color: var(--accent);
+    }
+    .hero-stat-label {
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+    /* Pain Points Section */
+    .pain {
+      padding: 8rem 0;
+      background: white;
+    }
+    .section-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: var(--gray-700);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+    }
+    .pain-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--gray-200);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .pain-card:focus-within {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(245, 158, 11, 0.15);
+    }
+    .pain-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, var(--warning) 0%, var(--warning) 100%);
+    }
+    .pain-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(245, 158, 11, 0.15);
+    }
+    .pain-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--warning);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .pain-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .pain-description {
+      color: var(--gray-700);
+      line-height: 1.6;
+    }
+    /* Solution Section */
+    .solution {
+      padding: 8rem 0;
+      background: var(--gray-50);
+    }
+    .solution-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+    .solution-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--gray-200);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .solution-card:focus-within {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(6, 182, 212, 0.15);
+    }
+    .solution-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--success) 100%);
+    }
+    .solution-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(6, 182, 212, 0.15);
+    }
+    .solution-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--success) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .solution-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .solution-description {
+      color: var(--gray-700);
+      line-height: 1.6;
+    }
+    /* Ecosystem Section */
+    .ecosystem {
+      padding: 8rem 0;
+      background: white;
+    }
+    .ecosystem-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .ecosystem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 4rem;
+    }
+    .ecosystem-item {
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      padding: 2rem;
+      border-radius: 16px;
+      text-align: center;
+    }
+    .ecosystem-item h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .unified-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .unified-item {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 1rem;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+    .ecosystem-total {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-top: 2rem;
+      color: var(--primary);
+    }
+    /* Journey Section */
+    .journey {
+      padding: 8rem 0;
+      background: var(--gray-50);
+    }
+    .journey-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+    .journey-step {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      border: 2px solid var(--gray-200);
+      transition: all 0.4s ease;
+      text-align: center;
+      position: relative;
+    }
+    .journey-step:focus-within {
+      transform: translateY(-5px);
+      border-color: transparent;
+      color: white;
+    }
+    .journey-step:focus-within .journey-title,
+    .journey-step:focus-within .journey-description {
+      color: white;
+    }
+    .journey-step::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--success) 100%);
+      border-radius: 20px;
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .journey-step:hover::before {
+      opacity: 1;
+    }
+    .journey-step:hover {
+      transform: translateY(-5px);
+      border-color: transparent;
+      color: white;
+    }
+    .journey-step:hover .journey-title,
+    .journey-step:hover .journey-description {
+      color: white;
+    }
+    .journey-number {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--success) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin: 0 auto 1.5rem;
+    }
+    .journey-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      transition: color 0.3s ease;
+    }
+    .journey-description {
+      color: var(--gray-700);
+      line-height: 1.6;
+      transition: color 0.3s ease;
+    }
+    /* Beta Section */
+    .beta {
+      padding: 8rem 0;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+    .beta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    }
+    .beta-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 2;
+    }
+    .beta-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .beta h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    .beta p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+    .beta-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin: 3rem 0;
+      flex-wrap: wrap;
+    }
+    .beta-stat {
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      min-width: 150px;
+    }
+    .beta-stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .beta-stat-label {
+      font-size: 0.95rem;
+      opacity: 0.8;
+    }
+    /* Testimonials */
+    .testimonials {
+      padding: 8rem 0;
+      background: white;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+    .testimonial {
+      background: var(--gray-50);
+      padding: 2.5rem;
+      border-radius: 20px;
+      border: 2px solid var(--gray-200);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+    .testimonial:focus-within {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+      box-shadow: 0 15px 30px rgba(6, 182, 212, 0.15);
+    }
+    .testimonial::before {
+      content: '"';
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      font-size: 4rem;
+      color: var(--accent);
+      font-weight: 700;
+      line-height: 1;
+    }
+    .testimonial:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent);
+      box-shadow: 0 15px 30px rgba(6, 182, 212, 0.15);
+    }
+    .testimonial-content {
+      font-style: italic;
+      color: var(--gray-700);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--success) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+    }
+    .author-info h4 {
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+    .author-info p {
+      color: var(--gray-700);
+      font-size: 0.875rem;
+    }
+    /* CTA Section */
+    .cta {
+      padding: 8rem 0;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent-dark) 100%);
+      color: white;
+      text-align: center;
+    }
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .cta h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .cta p {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    /* Footer */
+    .footer {
+      background: var(--primary);
+      color: white;
+      padding: 4rem 0 2rem;
+    }
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .footer-section h3 {
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .footer-section ul {
+      list-style: none;
+    }
+    .footer-section ul li {
+      margin-bottom: 0.75rem;
+    }
+    .footer-section ul li a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-section ul li a:hover {
+      color: var(--accent);
+    }
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .social-links a:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    /* Form Styles */
+    .form-container {
+      background: white;
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-top: 3rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .form-title {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--primary);
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--gray-700);
+    }
+    .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.2);
+    }
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .form-submit {
+      width: 100%;
+      margin-top: 1rem;
+    }
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      background: white;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 600px;
+      max-height: 90vh;
+      overflow: auto;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--gray-700);
+    }
+    .modal-video {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 16px 16px 0 0;
+    }
+    .modal-body {
+      padding: 2rem;
+    }
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+    .animate-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Loading animation */
+    .loader {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s ease-in-out infinite;
+      margin-right: 10px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero .tagline {
+        font-size: 1.25rem;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .pain-grid {
+        grid-template-columns: 1fr;
+      }
+      .solution-grid {
+        grid-template-columns: 1fr;
+      }
+      .ecosystem-grid {
+        grid-template-columns: 1fr;
+      }
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+      .cta h2 {
+        font-size: 2rem;
+      }
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .beta-stats {
+        flex-direction: column;
+        align-items: center;
+      }
+      .beta-stat {
+        min-width: 200px;
+      }
+      .form-container {
+        padding: 1.5rem;
+      }
+    }
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+      .btn-primary {
+        border: 2px solid white;
+      }
+      .nav-links a {
+        font-weight: 700;
+      }
+    }
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .btn::before {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav-container">
+      <a href="#" class="logo">BossCraft <span class="logo-chinese">博仕跨</span></a>
+      <ul class="nav-links">
+        <li><a href="#pain" id="navProblem">Problem</a></li>
+        <li><a href="#solution" id="navSolution">Solution</a></li>
+        <li><a href="#journey" id="navJourney">Your Journey</a></li>
+        <li><a href="#beta" id="navBeta">Beta Access</a></li>
+      </ul>
+      <div class="nav-cta">
+        <div class="lang-toggle">
+          <button class="lang-btn active" id="lang-en">EN</button>
+          <button class="lang-btn" id="lang-zh">中文</button>
+        </div>
+        <a href="#" class="btn btn-secondary" id="signIn">Sign In</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <h1 id="hero-title">Stop Wasting Money on Fragmented Tools</h1>
+      <p class="tagline" id="hero-tagline">Become Your Own Boss with a Unified E-Commerce Ecosystem</p>
+      <p class="subtitle" id="hero-subtitle">Most e-commerce merchants waste thousands on disconnected tools. BossCraft is the first unified ecosystem that connects sourcing, store building, fulfillment, and profit intelligence — guiding you from beginner to successful brand owner.</p>
+      <div style="margin: 3rem 0;">
+        <a href="#beta" class="btn btn-primary btn-lg" id="joinBeta">Join the Beta (Free)</a>
+        <a href="#solution" class="btn btn-secondary btn-lg" id="seeHow">See How It Works</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-number">50</span>
+          <span class="hero-stat-label">Beta Spots</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">3 Months</span>
+          <span class="hero-stat-label">Free Access</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">Direct</span>
+          <span class="hero-stat-label">Founder Access</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pain Points Section -->
+  <section class="pain" id="pain">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title" id="pain-title">The Fragmentation Problem</h2>
+        <p class="section-subtitle" id="pain-subtitle">If this sounds familiar, you're not alone</p>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card animate-in">
+          <div class="pain-icon">
+            <i class="fas fa-search" aria-hidden="true"></i>
+          </div>
+          <h3 class="pain-title" id="pain1-title">Sourcing Headaches</h3>
+          <p class="pain-description" id="pain1-desc">Spending hours searching 1688, Taobao, or AliExpress with no unified way to compare suppliers, prices, or shipping times. The nightmare of manual copy-paste.</p>
+        </div>
+        <div class="pain-card animate-in">
+          <div class="pain-icon">
+            <i class="fas fa-wallet" aria-hidden="true"></i>
+          </div>
+          <h3 class="pain-title" id="pain2-title">Tool Subscription Hell</h3>
+          <p class="pain-description" id="pain2-desc">$200-$2000/month on store builders + ERP + fulfillment + analytics + support. They don't talk to each other, creating integration nightmares.</p>
+        </div>
+        <div class="pain-card animate-in">
+          <div class="pain-icon">
+            <i class="fas fa-file-import" aria-hidden="true"></i>
+          </div>
+          <h3 class="pain-title" id="pain3-title">Manual Data Entry</h3>
+          <p class="pain-description" id="pain3-desc">Endless hours copying product details, images, prices. One typo loses a sale. No automation between platforms.</p>
+        </div>
+        <div class="pain-card animate-in">
+          <div class="pain-icon">
+            <i class="fas fa-truck" aria-hidden="true"></i>
+          </div>
+          <h3 class="pain-title" id="pain4-title">Fulfillment Chaos</h3>
+          <p class="pain-description" id="pain4-desc">Forgetting to order from suppliers, wrong tracking numbers, lost packages. One mistake loses a customer forever.</p>
+        </div>
+        <div class="pain-card animate-in">
+          <div class="pain-icon">
+            <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+          </div>
+          <h3 class="pain-title" id="pain5-title">Lack of Business Guidance</h3>
+          <p class="pain-description" id="pain5-desc">Tools give you features but no guidance. You're left guessing how to scale from dropshipping to your own brand.</p>
+        </div>
+        <div class="pain-card animate-in">
+          <div class="pain-icon">
+            <i class="fas fa-calculator" aria-hidden="true"></i>
+          </div>
+          <h3 class="pain-title" id="pain6-title">Profit Guesswork</h3>
+          <p class="pain-description" id="pain6-desc">Hidden fees, unclear margins, no real-time cost calculations. You think you're profitable but actually losing money.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section class="solution" id="solution">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title" id="solution-title">The BossCraft (博仕跨) Ecosystem</h2>
+        <p class="section-subtitle" id="solution-subtitle">One system. Zero fragmentation. Complete guidance.</p>
+      </div>
+      <div class="solution-grid">
+        <div class="solution-card animate-in">
+          <div class="solution-icon">
+            <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+          </div>
+          <h3 class="solution-title" id="solution1-title">Complete Business Training</h3>
+          <p class="solution-description" id="solution1-desc">Step-by-step guidance from beginner to boss. Product research, supplier relationships, scaling strategies — we teach you everything.</p>
+        </div>
+        <div class="solution-card animate-in">
+          <div class="solution-icon">
+            <i class="fas fa-globe" aria-hidden="true"></i>
+          </div>
+          <h3 class="solution-title" id="solution2-title">Smart Sourcing Hub</h3>
+          <p class="solution-description" id="solution2-desc">Connect to any supplier (1688, Taobao, AliExpress, etc.). AI-powered product import with one click. No more manual search.</p>
+        </div>
+        <div class="solution-card animate-in">
+          <div class="solution-icon">
+            <i class="fas fa-robot" aria-hidden="true"></i>
+          </div>
+          <h3 class="solution-title" id="solution3-title">AI Store Builder</h3>
+          <p class="solution-description" id="solution3-desc">Generate professional, conversion-optimized stores in minutes. No coding, no templates, no expensive developers.</p>
+        </div>
+        <div class="solution-card animate-in">
+          <div class="solution-icon">
+            <i class="fas fa-bolt" aria-hidden="true"></i>
+          </div>
+          <h3 class="solution-title" id="solution4-title">Auto-Fulfillment Network</h3>
+          <p class="solution-description" id="solution4-desc">When customers order, BossCraft auto-sends to suppliers and fulfillment partners. You get tracking instantly.</p>
+        </div>
+        <div class="solution-card animate-in">
+          <div class="solution-icon">
+            <i class="fas fa-chart-line" aria-hidden="true"></i>
+          </div>
+          <h3 class="solution-title" id="solution5-title">Profit Intelligence</h3>
+          <p class="solution-description" id="solution5-desc">Real-time profit calculation: product cost + shipping + duty + fees. No more guessing your true margins.</p>
+        </div>
+        <div class="solution-card animate-in">
+          <div class="solution-icon">
+            <i class="fas fa-users" aria-hidden="true"></i>
+          </div>
+          <h3 class="solution-title" id="solution6-title">Boss Community</h3>
+          <p class="solution-description" id="solution6-desc">Connect with entrepreneurs at every stage. One-on-one coaching and group support for your boss journey.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ecosystem Section -->
+  <section class="ecosystem">
+    <div class="ecosystem-container">
+      <div class="section-header">
+        <h2 class="section-title" id="ecosystem-title">One Ecosystem, Not 10+ Tools</h2>
+        <p class="section-subtitle" id="ecosystem-subtitle">BossCraft replaces your entire fragmented tool stack</p>
+      </div>
+      <div class="ecosystem-grid">
+        <div class="ecosystem-item">
+          <h3 id="oldWayTitle">Old Way: Tool Subscription Hell</h3>
+          <div class="unified-container">
+            <div class="unified-item"><i class="fas fa-store" aria-hidden="true"></i> Store Builder</div>
+            <div class="unified-item"><i class="fas fa-database" aria-hidden="true"></i> ERP System</div>
+            <div class="unified-item"><i class="fas fa-truck" aria-hidden="true"></i> Fulfillment Service</div>
+            <div class="unified-item"><i class="fas fa-chart-line" aria-hidden="true"></i> Analytics</div>
+            <div class="unified-item"><i class="fas fa-envelope" aria-hidden="true"></i> Email Platform</div>
+            <div class="unified-item"><i class="fas fa-headset" aria-hidden="true"></i> Support System</div>
+          </div>
+          <div class="ecosystem-total" id="oldWayTotal">Total: $1,698/mo + Integration Nightmare</div>
+        </div>
+        <div class="ecosystem-item">
+          <h3 id="newWayTitle">BossCraft Way: Unified Ecosystem</h3>
+          <div class="unified-container">
+            <div class="unified-item"><i class="fas fa-check" aria-hidden="true"></i> Sourcing</div>
+            <div class="unified-item"><i class="fas fa-check" aria-hidden="true"></i> Store Building</div>
+            <div class="unified-item"><i class="fas fa-check" aria-hidden="true"></i> Fulfillment</div>
+            <div class="unified-item"><i class="fas fa-check" aria-hidden="true"></i> Analytics</div>
+            <div class="unified-item"><i class="fas fa-check" aria-hidden="true"></i> Email</div>
+            <div class="unified-item"><i class="fas fa-check" aria-hidden="true"></i> Support</div>
+          </div>
+          <div class="ecosystem-total" id="newWayTotal">Total: $99/mo + Complete Business Guidance</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Journey Section -->
+  <section class="journey" id="journey">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title" id="journey-title">Your Journey to Becoming Your Own Boss</h2>
+        <p class="section-subtitle" id="journey-subtitle">We guide you through every stage of building a successful business</p>
+      </div>
+      <div class="journey-steps">
+        <div class="journey-step animate-in">
+          <div class="journey-number">1</div>
+          <h3 class="journey-title" id="step1">Complete Beginner</h3>
+          <p class="journey-description" id="step1-desc">Start with zero experience? Perfect! We provide comprehensive training, product research guidance, and step-by-step tutorials to get you started.</p>
+        </div>
+        <div class="journey-step animate-in">
+          <div class="journey-number">2</div>
+          <h3 class="journey-title" id="step2">Dropshipping Success</h3>
+          <p class="journey-description" id="step2-desc">Master dropshipping with our AI-powered tools, automated fulfillment, and profit optimization. Build confidence and cash flow.</p>
+        </div>
+        <div class="journey-step animate-in">
+          <div class="journey-number">3</div>
+          <h3 class="journey-title" id="step3">Inventory Management</h3>
+          <p class="journey-description" id="step3-desc">Scale up with bulk purchasing, inventory management, and supplier relationships. We guide your transition to holding stock.</p>
+        </div>
+        <div class="journey-step animate-in">
+          <div class="journey-number">4</div>
+          <h3 class="journey-title" id="step4">Own Brand & Business</h3>
+          <p class="journey-description" id="step4-desc">Transform into a real brand owner with private labeling, custom packaging, and your own product lines. True boss status achieved!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beta Section -->
+  <section class="beta" id="beta">
+    <div class="beta-container">
+      <div class="beta-badge">BETA ACCESS</div>
+      <h2 id="beta-title">We're Building This With Real Entrepreneurs</h2>
+      <p id="beta-description">We're onboarding 50 aspiring entrepreneurs to test BossCraft. You get 3 months free access + direct access to the founder — we get your feedback on how to become a boss.</p>
+      <div class="beta-stats">
+        <div class="beta-stat">
+          <div class="beta-stat-number">50</div>
+          <div class="beta-stat-label">Spots Available</div>
+        </div>
+        <div class="beta-stat">
+          <div class="beta-stat-number">3 Months</div>
+          <div class="beta-stat-label">Free Access</div>
+        </div>
+        <div class="beta-stat">
+          <div class="beta-stat-number">Direct</div>
+          <div class="beta-stat-label">Founder Access</div>
+        </div>
+      </div>
+      
+      <!-- Beta Application Form -->
+      <div class="form-container">
+        <h3 class="form-title" id="formTitle">Apply for Beta Access</h3>
+        <form id="betaForm">
+          <div class="form-group">
+            <label for="name" class="form-label" id="formName">Full Name</label>
+            <input type="text" id="name" class="form-input" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="email" class="form-label" id="formEmail">Email Address</label>
+            <input type="email" id="email" class="form-input" required aria-required="true">
+          </div>
+          <div class="form-group">
+            <label for="business" class="form-label" id="formBusiness">Current Business Stage</label>
+            <select id="business" class="form-input" required aria-required="true">
+              <option value="">Select your stage</option>
+              <option value="beginner">Just starting out</option>
+              <option value="dropshipping">Currently dropshipping</option>
+              <option value="inventory">Holding inventory</option>
+              <option value="brand">Building a brand</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="goals" class="form-label" id="formGoals">Your Goals with BossCraft</label>
+            <textarea id="goals" class="form-input form-textarea" required aria-required="true"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit" id="formSubmit">
+            <span class="loader" id="formLoader" style="display: none;"></span>
+            <span id="submitText">Submit Application</span>
+          </button>
+        </form>
+        <div id="formSuccess" style="display: none; text-align: center; padding: 2rem; color: var(--success);">
+          <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+          <h3 id="successTitle">Application Submitted!</h3>
+          <p id="successMessage">We'll review your application and contact you within 48 hours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Success Stories</h2>
+        <p class="section-subtitle">See how entrepreneurs are scaling with BossCraft</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial animate-in">
+          <p class="testimonial-content" id="testimonial1">"I was spending $2,000/month on tools that didn't talk to each other. BossCraft replaced 6 of them. My first store went live in 2 days. They taught me supplier relationships and profit optimization. Finally understand how to scale."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">MZ</div>
+            <div class="author-info">
+              <h4 id="testimonial1Author">eCommerce Merchant</h4>
+              <p id="testimonial1Role">First $15K Month</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial animate-in">
+          <p class="testimonial-content" id="testimonial2">"The AI store builder saved me $5,000 in developer fees. Finally, a system that connects sourcing to fulfillment. They don't just give tools — they teach you how to think like a boss."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SL</div>
+            <div class="author-info">
+              <h4 id="testimonial2Author">Former Teacher</h4>
+              <p id="testimonial2Role">First $15K Month</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial animate-in">
+          <p class="testimonial-content" id="testimonial3">"I was drowning in manual work—25 hours/week copy-pasting. BossCraft cut it to 3 hours and taught me how to think like a business owner. Profit up 60% in 6 weeks."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">DW</div>
+            <div class="author-info">
+              <h4 id="testimonial3Author">Former Engineer</h4>
+              <p id="testimonial3Role">Building Own Brand</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="cta-container">
+      <h2 id="cta-title">Ready to Become Your Own Boss?</h2>
+      <p id="cta-desc">Join 50 entrepreneurs testing BossCraft. Get 3 months free access to the complete ecosystem + personal guidance from our founder.</p>
+      <div class="cta-buttons">
+        <a href="#beta" class="btn btn-primary btn-lg" id="cta-apply">Apply for Beta Access</a>
+        <a href="#" class="btn btn-secondary btn-lg" id="cta-demo">Watch Demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>BossCraft</h3>
+          <p id="footerDesc">The unified e-commerce ecosystem designed to guide you from complete beginner to successful business owner.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin-in" aria-label="LinkedIn"></i></a>
+            <a href="#"><i class="fab fa-twitter" aria-label="Twitter"></i></a>
+            <a href="#"><i class="fab fa-youtube" aria-label="YouTube"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Product</h3>
+          <ul>
+            <li><a href="#solution">How It Works</a></li>
+            <li><a href="#beta">Beta Program</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Security</a></li>
+            <li><a href="#">API Documentation</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Support</a></li>
+            <li><a href="#">System Status</a></li>
+            <li><a href="#">Training</a></li>
+            <li><a href="#">Community</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Partners</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 BossCraft. All rights reserved. | The Unified E-Commerce Ecosystem</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Demo Video Modal -->
+  <div class="modal" id="demoModal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
+      <iframe class="modal-video" src="about:blank" data-src="https://www.youtube.com/embed/example" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen title="BossCraft Demo Video"></iframe>
+      <div class="modal-body">
+        <h3 id="modalTitle">BossCraft Platform Demo</h3>
+        <p>See how BossCraft simplifies e-commerce with our unified platform. This 5-minute demo shows how you can go from product sourcing to store creation in under 30 minutes.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Language Content & Scripts -->
+  <script>
+    // Language content
+    const content = {
+      en: {
+        heroTitle: "Stop Wasting Money on Fragmented Tools",
+        heroTagline: "Become Your Own Boss with a Unified E-Commerce Ecosystem",
+        heroSubtitle: "Most e-commerce merchants waste thousands on disconnected tools. BossCraft is the first unified ecosystem that connects sourcing, store building, fulfillment, and profit intelligence — guiding you from beginner to successful brand owner.",
+        painTitle: "The Fragmentation Problem",
+        painSubtitle: "If this sounds familiar, you're not alone",
+        pain1Title: "Sourcing Headaches",
+        pain1Desc: "Spending hours searching 1688, Taobao, or AliExpress with no unified way to compare suppliers, prices, or shipping times. The nightmare of manual copy-paste.",
+        pain2Title: "Tool Subscription Hell",
+        pain2Desc: "$200-$2000/month on store builders + ERP + fulfillment + analytics + support. They don't talk to each other, creating integration nightmares.",
+        pain3Title: "Manual Data Entry",
+        pain3Desc: "Endless hours copying product details, images, prices. One typo loses a sale. No automation between platforms.",
+        pain4Title: "Fulfillment Chaos",
+        pain4Desc: "Forgetting to order from suppliers, wrong tracking numbers, lost packages. One mistake loses a customer forever.",
+        pain5Title: "Lack of Business Guidance",
+        pain5Desc: "Tools give you features but no guidance. You're left guessing how to scale from dropshipping to your own brand.",
+        pain6Title: "Profit Guesswork",
+        pain6Desc: "Hidden fees, unclear margins, no real-time cost calculations. You think you're profitable but actually losing money.",
+        solutionTitle: "The BossCraft (博仕跨) Ecosystem",
+        solutionSubtitle: "One system. Zero fragmentation. Complete guidance.",
+        solution1Title: "Complete Business Training",
+        solution1Desc: "Step-by-step guidance from beginner to boss. Product research, supplier relationships, scaling strategies — we teach you everything.",
+        solution2Title: "Smart Sourcing Hub",
+        solution2Desc: "Connect to any supplier (1688, Taobao, AliExpress, etc.). AI-powered product import with one click. No more manual search.",
+        solution3Title: "AI Store Builder",
+        solution3Desc: "Generate professional, conversion-optimized stores in minutes. No coding, no templates, no expensive developers.",
+        solution4Title: "Auto-Fulfillment Network",
+        solution4Desc: "When customers order, BossCraft auto-sends to suppliers and fulfillment partners. You get tracking instantly.",
+        solution5Title: "Profit Intelligence",
+        solution5Desc: "Real-time profit calculation: product cost + shipping + duty + fees. No more guessing your true margins.",
+        solution6Title: "Boss Community",
+        solution6Desc: "Connect with entrepreneurs at every stage. One-on-one coaching and group support for your boss journey.",
+        ecosystemTitle: "One Ecosystem, Not 10+ Tools",
+        ecosystemSubtitle: "BossCraft replaces your entire fragmented tool stack",
+        oldWayTitle: "Old Way: Tool Subscription Hell",
+        newWayTitle: "BossCraft Way: Unified Ecosystem",
+        oldWayTotal: "Total: $1,698/mo + Integration Nightmare",
+        newWayTotal: "Total: $99/mo + Complete Business Guidance",
+        journeyTitle: "Your Journey to Becoming Your Own Boss",
+        journeySubtitle: "We guide you through every stage of building a successful business",
+        step1: "Complete Beginner",
+        step1Desc: "Start with zero experience? Perfect! We provide comprehensive training, product research guidance, and step-by-step tutorials to get you started.",
+        step2: "Dropshipping Success",
+        step2Desc: "Master dropshipping with our AI-powered tools, automated fulfillment, and profit optimization. Build confidence and cash flow.",
+        step3: "Inventory Management",
+        step3Desc: "Scale up with bulk purchasing, inventory management, and supplier relationships. We guide your transition to holding stock.",
+        step4: "Own Brand & Business",
+        step4Desc: "Transform into a real brand owner with private labeling, custom packaging, and your own product lines. True boss status achieved!",
+        betaTitle: "We're Building This With Real Entrepreneurs",
+        betaDescription: "We're onboarding 50 aspiring entrepreneurs to test BossCraft. You get 3 months free access + direct access to the founder — we get your feedback on how to become a boss.",
+        testimonial1: "I was spending $2,000/month on tools that didn't talk to each other. BossCraft replaced 6 of them. My first store went live in 2 days. They taught me supplier relationships and profit optimization. Finally understand how to scale.",
+        testimonial1Author: "eCommerce Merchant",
+        testimonial1Role: "First $15K Month",
+        testimonial2: "The AI store builder saved me $5,000 in developer fees. Finally, a system that connects sourcing to fulfillment. They don't just give tools — they teach you how to think like a boss.",
+        testimonial2Author: "Former Teacher",
+        testimonial2Role: "First $15K Month",
+        testimonial3: "I was drowning in manual work—25 hours/week copy-pasting. BossCraft cut it to 3 hours and taught me how to think like a business owner. Profit up 60% in 6 weeks.",
+        testimonial3Author: "Former Engineer",
+        testimonial3Role: "Building Own Brand",
+        ctaTitle: "Ready to Become Your Own Boss?",
+        ctaDesc: "Join 50 entrepreneurs testing BossCraft. Get 3 months free access to the complete ecosystem + personal guidance from our founder.",
+        footerDesc: "The unified e-commerce ecosystem designed to guide you from complete beginner to successful business owner.",
+        navProblem: "Problem",
+        navSolution: "Solution",
+        navJourney: "Your Journey",
+        navBeta: "Beta Access",
+        joinBeta: "Join the Beta (Free)",
+        seeHow: "See How It Works",
+        applyBeta: "Apply for Beta Access",
+        watchDemo: "Watch Demo",
+        signIn: "Sign In",
+        formTitle: "Apply for Beta Access",
+        formName: "Full Name",
+        formEmail: "Email Address",
+        formBusiness: "Current Business Stage",
+        formGoals: "Your Goals with BossCraft",
+        submitText: "Submit Application",
+        successTitle: "Application Submitted!",
+        successMessage: "We'll review your application and contact you within 48 hours.",
+        modalTitle: "BossCraft Platform Demo"
+      },
+      zh: {
+        heroTitle: "停止在碎片化工具上浪费金钱",
+        heroTagline: "通过统一生态系统成为自己的老板",
+        heroSubtitle: "大多数电商商家在互不关联的工具上花费数千美元。博仕跨是首个统一生态系统，连接货源、建站、履约和利润智能——指导您从新手成为老板。",
+        painTitle: "碎片化问题",
+        painSubtitle: "如果这听起来很熟悉，你并不孤单",
+        pain1Title: "货源采购头疼",
+        pain1Desc: "在1688、淘宝、速卖通上花费数小时搜索，没有统一的方式比较供应商、价格或发货时间。手动复制粘贴的噩梦。",
+        pain2Title: "工具订阅地狱",
+        pain2Desc: "每月200-2000美元用于建站工具+ERP+履约+分析+支持。它们彼此之间无法通信。",
+        pain3Title: "手动数据录入",
+        pain3Desc: "无穷无尽的时间复制产品详情、图片、价格。一个错字就失去一笔销售。平台间没有自动化。",
+        pain4Title: "履约混乱",
+        pain4Desc: "忘记向供应商下单、错误的跟踪号码、丢失包裹。一个错误就永远失去客户。",
+        pain5Title: "缺乏商业指导",
+        pain5Desc: "工具给你功能但没有指导。你只能猜测如何从代发扩展到自有品牌。",
+        pain6Title: "利润猜测",
+        pain6Desc: "隐藏费用、不清楚的利润率、没有实时成本计算。你以为盈利但实际在亏钱。",
+        solutionTitle: "博仕跨生态系统",
+        solutionSubtitle: "一个系统，零碎片化，完整指导。",
+        solution1Title: "完整商业培训",
+        solution1Desc: "从新手到老板的逐步指导。产品研究、供应商关系、扩展策略——我们教您一切。",
+        solution2Title: "智能货源中心",
+        solution2Desc: "连接任何供应商（1688、淘宝、速卖通等）。AI驱动的一键产品导入。不再需要手动搜索。",
+        solution3Title: "AI智能建站",
+        solution3Desc: "几分钟内生成专业的转化优化店铺。无需编码、无需模板、无需昂贵的开发者。",
+        solution4Title: "自动履约网络",
+        solution4Desc: "当客户下单时，博仕跨自动发送给供应商和履约合作伙伴。您立即获得跟踪信息。",
+        solution5Title: "利润智能",
+        solution5Desc: "实时利润计算：产品成本+运费+关税+费用。不再猜测真实利润率。",
+        solution6Title: "老板社区",
+        solution6Desc: "与各个阶段的企业家联系。一对一指导和群体支持，助力您的老板之路。",
+        ecosystemTitle: "一个生态系统，而非10+工具",
+        ecosystemSubtitle: "博仕跨替代您整个碎片化的工具栈",
+        oldWayTitle: "旧方式：工具订阅地狱",
+        newWayTitle: "博仕跨方式：统一生态系统",
+        oldWayTotal: "总计：每月$1,698 + 集成噩梦",
+        newWayTotal: "总计：每月$99 + 完整商业指导",
+        journeyTitle: "您成为老板的历程",
+        journeySubtitle: "我们指导您走过建立成功企业的每个阶段",
+        step1: "完全新手",
+        step1Desc: "零经验起步？完美！我们提供全面培训、产品调研指导和逐步教程，助您顺利入门。",
+        step2: "代发成功",
+        step2Desc: "通过我们的AI工具、自动履约和利润优化掌握代发业务。建立信心和现金流。",
+        step3: "库存管理",
+        step3Desc: "通过批量采购、库存管理和供应商关系实现规模化。我们指导您过渡到持货经营。",
+        step4: "自有品牌与企业",
+        step4Desc: "通过私人贴牌、定制包装和自有产品线转型为真正的品牌所有者。实现真正的企业主地位！",
+        betaTitle: "我们正与真实企业家共同打造",
+        betaDescription: "我们正在招募50名有抱负的人测试博仕跨。您可获得3个月免费使用+与创始人的直接联系——我们获取您关于如何成为老板的反馈。",
+        testimonial1: "我曾每月在工具上花费2000美元，它们彼此不通信。博仕跨取代了6个工具。我的第一个店铺在2天内上线。他们教我供应商关系和利润优化。终于明白如何扩展。",
+        testimonial1Author: "电商商家",
+        testimonial1Role: "首月$15K",
+        testimonial2: "AI建站工具为我省下5000美元开发费。终于有了一个将货源与履约连接起来的系统。他们不只是给工具——他们教我如何像老板一样思考。",
+        testimonial2Author: "前教师",
+        testimonial2Role: "首月$15K",
+        testimonial3: "我曾淹没在手动工作中——每周25小时复制粘贴。博仕跨将其减少到3小时，并教会我如何像企业主一样思考。6周内利润增长60%。",
+        testimonial3Author: "前工程师",
+        testimonial3Role: "正在建立自有品牌",
+        ctaTitle: "准备成为自己的老板？",
+        ctaDesc: "加入50名测试博仕跨的企业家。获得3个月免费访问完整生态系统+我们创始人的个人指导。",
+        footerDesc: "统一的电商生态系统，旨在指导您从完全新手成为成功的企业主。",
+        navProblem: "问题痛点",
+        navSolution: "解决方案",
+        navJourney: "您的历程",
+        navBeta: "内测申请",
+        joinBeta: "加入内测（免费）",
+        seeHow: "了解运作方式",
+        applyBeta: "申请内测资格",
+        watchDemo: "观看演示",
+        signIn: "登录",
+        formTitle: "申请内测资格",
+        formName: "姓名",
+        formEmail: "邮箱地址",
+        formBusiness: "当前业务阶段",
+        formGoals: "您使用博仕跨的目标",
+        submitText: "提交申请",
+        successTitle: "申请已提交！",
+        successMessage: "我们将在48小时内审核您的申请并与您联系。",
+        modalTitle: "博仕跨平台演示"
+      }
+    };
+
+    function setLanguage(lang) {
+      document.documentElement.lang = lang;
+      const t = content[lang];
+      
+      // Update all content
+      document.getElementById('hero-title').textContent = t.heroTitle;
+      document.getElementById('hero-tagline').textContent = t.heroTagline;
+      document.getElementById('hero-subtitle').textContent = t.heroSubtitle;
+      document.getElementById('pain-title').textContent = t.painTitle;
+      document.getElementById('pain-subtitle').textContent = t.painSubtitle;
+      document.getElementById('pain1-title').textContent = t.pain1Title;
+      document.getElementById('pain1-desc').textContent = t.pain1Desc;
+      document.getElementById('pain2-title').textContent = t.pain2Title;
+      document.getElementById('pain2-desc').textContent = t.pain2Desc;
+      document.getElementById('pain3-title').textContent = t.pain3Title;
+      document.getElementById('pain3-desc').textContent = t.pain3Desc;
+      document.getElementById('pain4-title').textContent = t.pain4Title;
+      document.getElementById('pain4-desc').textContent = t.pain4Desc;
+      document.getElementById('pain5-title').textContent = t.pain5Title;
+      document.getElementById('pain5-desc').textContent = t.pain5Desc;
+      document.getElementById('pain6-title').textContent = t.pain6Title;
+      document.getElementById('pain6-desc').textContent = t.pain6Desc;
+      document.getElementById('solution-title').textContent = t.solutionTitle;
+      document.getElementById('solution-subtitle').textContent = t.solutionSubtitle;
+      document.getElementById('solution1-title').textContent = t.solution1Title;
+      document.getElementById('solution1-desc').textContent = t.solution1Desc;
+      document.getElementById('solution2-title').textContent = t.solution2Title;
+      document.getElementById('solution2-desc').textContent = t.solution2Desc;
+      document.getElementById('solution3-title').textContent = t.solution3Title;
+      document.getElementById('solution3-desc').textContent = t.solution3Desc;
+      document.getElementById('solution4-title').textContent = t.solution4Title;
+      document.getElementById('solution4-desc').textContent = t.solution4Desc;
+      document.getElementById('solution5-title').textContent = t.solution5Title;
+      document.getElementById('solution5-desc').textContent = t.solution5Desc;
+      document.getElementById('solution6-title').textContent = t.solution6Title;
+      document.getElementById('solution6-desc').textContent = t.solution6Desc;
+      document.getElementById('ecosystem-title').textContent = t.ecosystemTitle;
+      document.getElementById('ecosystem-subtitle').textContent = t.ecosystemSubtitle;
+      document.getElementById('oldWayTitle').textContent = t.oldWayTitle;
+      document.getElementById('newWayTitle').textContent = t.newWayTitle;
+      document.getElementById('oldWayTotal').textContent = t.oldWayTotal;
+      document.getElementById('newWayTotal').textContent = t.newWayTotal;
+      document.getElementById('journey-title').textContent = t.journeyTitle;
+      document.getElementById('journey-subtitle').textContent = t.journeySubtitle;
+      document.getElementById('step1').textContent = t.step1;
+      document.getElementById('step1-desc').textContent = t.step1Desc;
+      document.getElementById('step2').textContent = t.step2;
+      document.getElementById('step2-desc').textContent = t.step2Desc;
+      document.getElementById('step3').textContent = t.step3;
+      document.getElementById('step3-desc').textContent = t.step3Desc;
+      document.getElementById('step4').textContent = t.step4;
+      document.getElementById('step4-desc').textContent = t.step4Desc;
+      document.getElementById('beta-title').textContent = t.betaTitle;
+      document.getElementById('beta-description').textContent = t.betaDescription;
+      document.getElementById('testimonial1').textContent = t.testimonial1;
+      document.getElementById('testimonial1Author').textContent = t.testimonial1Author;
+      document.getElementById('testimonial1Role').textContent = t.testimonial1Role;
+      document.getElementById('testimonial2').textContent = t.testimonial2;
+      document.getElementById('testimonial2Author').textContent = t.testimonial2Author;
+      document.getElementById('testimonial2Role').textContent = t.testimonial2Role;
+      document.getElementById('testimonial3').textContent = t.testimonial3;
+      document.getElementById('testimonial3Author').textContent = t.testimonial3Author;
+      document.getElementById('testimonial3Role').textContent = t.testimonial3Role;
+      document.getElementById('cta-title').textContent = t.ctaTitle;
+      document.getElementById('cta-desc').textContent = t.ctaDesc;
+      document.getElementById('footerDesc').textContent = t.footerDesc;
+      document.getElementById('navProblem').textContent = t.navProblem;
+      document.getElementById('navSolution').textContent = t.navSolution;
+      document.getElementById('navJourney').textContent = t.navJourney;
+      document.getElementById('navBeta').textContent = t.navBeta;
+      document.getElementById('joinBeta').textContent = t.joinBeta;
+      document.getElementById('seeHow').textContent = t.seeHow;
+      document.getElementById('applyBeta').textContent = t.applyBeta;
+      document.getElementById('watchDemo').textContent = t.watchDemo;
+      document.getElementById('signIn').textContent = t.signIn;
+      document.getElementById('formTitle').textContent = t.formTitle;
+      document.getElementById('formName').textContent = t.formName;
+      document.getElementById('formEmail').textContent = t.formEmail;
+      document.getElementById('formBusiness').textContent = t.formBusiness;
+      document.getElementById('formGoals').textContent = t.formGoals;
+      document.getElementById('submitText').textContent = t.submitText;
+      document.getElementById('successTitle').textContent = t.successTitle;
+      document.getElementById('successMessage').textContent = t.successMessage;
+      document.getElementById('modalTitle').textContent = t.modalTitle;
+
+      // Update button states
+      document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+      document.getElementById('lang-zh').classList.toggle('active', lang === 'zh');
+      
+      // Save language preference
+      localStorage.setItem('bossCraft_lang', lang);
+    }
+
+    // Language toggle
+    document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
+    document.getElementById('lang-zh').addEventListener('click', () => setLanguage('zh'));
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('.header');
+      if (window.scrollY > 100) {
+        header.style.background = 'rgba(255, 255, 255, 0.98)';
+        header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+      } else {
+        header.style.background = 'rgba(255, 255, 255, 0.95)';
+        header.style.boxShadow = 'none';
+      }
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Intersection Observer for animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    // Observe all animate-in elements
+    document.querySelectorAll('.animate-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Form submission handling
+    const betaForm = document.getElementById('betaForm');
+    if (betaForm) {
+      betaForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        const loader = document.getElementById('formLoader');
+        const submitText = document.getElementById('submitText');
+        loader.style.display = 'inline-block';
+        submitText.textContent = 'Submitting...';
+        
+        // Simulate form submission
+        setTimeout(() => {
+          // Hide form, show success message
+          betaForm.style.display = 'none';
+          document.getElementById('formSuccess').style.display = 'block';
+          
+          // Track conversion
+          trackEvent('beta_application_submitted');
+        }, 1500);
+      });
+    }
+
+    // Modal functionality
+    const demoModal = document.getElementById('demoModal');
+    const demoButtons = document.querySelectorAll('#cta-demo, #watchDemo');
+    const modalClose = document.getElementById('modalClose');
+    
+    demoButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        demoModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        // Load video only when modal is opened (for performance)
+        const iframe = document.querySelector('.modal-video');
+        if (iframe.src === 'about:blank') {
+          iframe.src = iframe.dataset.src;
+        }
+        
+        trackEvent('demo_video_opened');
+      });
+    });
+    
+    modalClose.addEventListener('click', () => {
+      demoModal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+    
+    demoModal.addEventListener('click', (e) => {
+      if (e.target === demoModal) {
+        demoModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Analytics tracking
+    function trackEvent(action) {
+      console.log('Event tracked:', action);
+      // Add Google Analytics, Heap, or other tracking here
+      // if (window.gtag) gtag('event', action);
+      // if (window.heap) heap.track(action);
+    }
+
+    // Attach tracking to key buttons
+    document.getElementById('cta-apply').addEventListener('click', () => trackEvent('cta_apply_beta'));
+    document.getElementById('cta-demo').addEventListener('click', () => trackEvent('cta_watch_demo'));
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('bossCraft_lang') || 'en';
+      setLanguage(savedLang);
+      
+      // Add focus styles for keyboard navigation
+      document.addEventListener('keyup', (e) => {
+        if (e.key === 'Tab') {
+          document.body.classList.add('keyboard-nav');
+        }
+      });
+      
+      document.addEventListener('mousedown', () => {
+        document.body.classList.remove('keyboard-nav');
+      });
+    });
+  </script>
+</body>
+</html>
