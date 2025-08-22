@@ -1,0 +1,28 @@
+# railway.toml
+
+# Define a service called "boss-craft-backend"
+[[services]]
+name = "boss-craft-backend" # You can name this anything, like "odoo" or "main"
+# The build method is Docker, which will use your Dockerfile
+builder = "docker"
+
+# (Optional but Recommended) Specify the root directory for this service
+# This tells Railway to look for the Dockerfile inside the BossCraft folder
+[build]
+dir = "BossCraft"
+
+# (Optional) Set environment variables that your Dockerfile expects
+# These are the same variables you would set in the Railway dashboard
+[env]
+ADMIN_PASSWORD = { from = "secret", name = "ADMIN_PASSWORD" }
+DB_HOST = { from = "service", name = "postgres", property = "host" }
+DB_PORT = { from = "service", name = "postgres", property = "port" }
+DB_USER = { from = "service", name = "postgres", property = "user" }
+DB_PASSWORD = { from = "service", name = "postgres", property = "password" }
+DB_NAME = "odoo"
+
+# (Optional) Define the database service if you want it created automatically
+# [[services]]
+# name = "postgres"
+# image = "postgres:15"
+# ports = [{ port = 5432 }]
