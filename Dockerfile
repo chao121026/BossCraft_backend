@@ -1,10 +1,12 @@
 FROM odoo:17.0
 
-# 复制插件目录并直接设置权限（使用 --chown 参数）
+# 复制插件目录并直接设置权限
 COPY --chown=odoo:odoo odoo_addons /mnt/extra-addons
 
-# 复制配置模板和启动脚本
-COPY odoo.conf /etc/odoo/odoo.conf.template
+# 复制配置模板（注意源文件名已更改）
+COPY odoo.conf.template /etc/odoo/odoo.conf.template
+
+# 复制启动脚本
 COPY start.sh /start.sh
 
 # 安装 envsubst 并设置脚本权限
