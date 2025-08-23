@@ -1,10 +1,15 @@
 [options]
 ; Database connection (using Railway's variable names)
-db_host = ${DATABASE_HOST:-localhost}
-db_port = ${DATABASE_PORT:-5432}
-db_user = ${DATABASE_USER:-postgres}
-db_password = ${DATABASE_PASSWORD:-}
-db_name = ${DATABASE_NAME:-railway}
+[options]
+; 使用 DB_* 变量名（与 railway.toml 对应）
+db_host = ${DB_HOST}
+db_port = ${DB_PORT}
+db_user = ${DB_USER}
+db_password = ${DB_PASSWORD}
+db_name = ${DB_NAME}
+
+admin_passwd = ${ADMIN_PASSWORD}
+
 
 ; Server configuration
 http_port = 8069
