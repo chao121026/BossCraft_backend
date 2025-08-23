@@ -1,31 +1,33 @@
 FROM odoo:17.0
 
-# 复制插件目录并直接设置权限
+# 设置工作目录
+WORKDIR /mnt/extra-addons
+
+# 复制自定义插件（使用你当前的文件夹名）
 COPY --chown=odoo:odoo odoo_addons /mnt/extra-addons
 
-# 复制配置模板（使用正确的文件名）
+# 复制配置模板和启动脚本
 COPY odoo.conf.template /etc/odoo/odoo.conf.template
-
-# 复制启动脚本
 COPY start.sh /start.sh
 
-# 安装 envsubst 并设置脚本权限
+# 以root用户安装依赖并设置权限
 USER root
-RUN apt-get update && apt-get install -y gettext-base && \
-    chmod +x /start.sh
+RUN apt-get update && \
+    apt-get install -y gettext-base && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    chmod +x /start.sh && \
+    chown -R odoo:odoo /etc/odoo/
+
+# 切换回odoo用户
 USER odoo
 
-# 调试：列出添加的模块
+# 验证插件安装
 RUN echo "Available addons:" && \
-    ls -la /mnt/extra-addons/ 2>/dev/null || echo "No addons directory"
+    ls -la /mnt/extra-addons/ && \
+    echo "Boss Craft module:" && \
+    ls -la /mnt/extra-addons/boss_craft_unified_dashboard/ 2>/dev/null || echo "Module not found"
 
-# 设置启动脚本为入口点
 ENTRYPOINT ["/start.sh"]
-
 EXPOSE 8069
-CMD ["odoo", "--init=boss_craft_unified_dashboard", "--load=web", "--workers=4"]
-
-
-
-
-
+CMD ["odoo", "--init=boss_craft_unified_dashboard", "--workers=4"]
