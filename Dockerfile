@@ -3,7 +3,7 @@ FROM odoo:17.0
 # 复制插件目录并直接设置权限
 COPY --chown=odoo:odoo odoo_addons /mnt/extra-addons
 
-# 复制配置模板（注意源文件名已更改）
+# 复制配置模板（使用正确的文件名）
 COPY odoo.conf.template /etc/odoo/odoo.conf.template
 
 # 复制启动脚本
