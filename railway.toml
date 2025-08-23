@@ -15,10 +15,8 @@ dir = "BossCraft"
 [env]
 # The master password for your Odoo instance. You will set this in the Railway dashboard.
 ADMIN_PASSWORD = { from = "secret", name = "ADMIN_PASSWORD" }
-# Database connection variables. These are automatically populated if you have a linked PostgreSQL service.
 DB_HOST = { from = "service", name = "postgresql", property = "host" }
 DB_PORT = { from = "service", name = "postgresql", property = "port" }
 DB_USER = { from = "service", name = "postgresql", property = "user" }
 DB_PASSWORD = { from = "service", name = "postgresql", property = "password" }
-# The name of the database Odoo will use
-DB_NAME = "odoo"
+DB_NAME = { from = "service", name = "postgresql", property = "database" }
