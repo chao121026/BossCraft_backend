@@ -8,12 +8,9 @@ builder = "docker"
 
 # Specify the build directory where your Dockerfile is located
 [build]
-# This tells Railway to look for the Dockerfile in the BossCraft subdirectory
-dir = "BossCraft"
 
 # Define environment variables
 [env]
-# The master password for your Odoo instance. You will set this in the Railway dashboard.
 ADMIN_PASSWORD = { from = "secret", name = "ADMIN_PASSWORD" }
 DB_HOST = { from = "service", name = "postgresql", property = "host" }
 DB_PORT = { from = "service", name = "postgresql", property = "port" }
