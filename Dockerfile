@@ -4,7 +4,7 @@ FROM odoo:17.0
 COPY --chown=odoo:odoo odoo_addons /mnt/extra-addons
 
 # 复制配置模板（使用正确的文件名）
-COPY odoo.conf /etc/odoo/odoo.conf.template
+COPY odoo.conf /etc/odoo/odoo.conf
 
 # 复制启动脚本
 COPY start.sh /start.sh
@@ -24,6 +24,7 @@ ENTRYPOINT ["/start.sh"]
 
 EXPOSE 8069
 CMD ["odoo", "--init=boss_craft_unified_dashboard", "--load=web", "--workers=4"]
+
 
 
 
