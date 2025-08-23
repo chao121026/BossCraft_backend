@@ -12,3 +12,11 @@ builder = "docker"
 # Define environment variables
 [env]
 ADMIN_PASSWORD = { from = "secret", name = "ADMIN_PASSWORD" }
+
+
+# 使用 Railway 的 service 引用语法
+DB_HOST = { from = "service", name = "postgresql", property = "host" }
+DB_PORT = { from = "service", name = "postgresql", property = "port" }
+DB_USER = { from = "service", name = "postgresql", property = "user" }
+DB_PASSWORD = { from = "service", name = "postgresql", property = "password" }
+DB_NAME = { from = "service", name = "postgresql", property = "database" }
